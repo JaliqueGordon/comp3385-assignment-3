@@ -10,5 +10,9 @@ class DashboardController extends Controller
     public function index(): View
     {
         return view('dashboard');
+        $clients = Client::all();
+        return view('dashboard', compact('clients'));
     }
+
+    
 }

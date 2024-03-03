@@ -32,6 +32,9 @@ Route::get('/login', [AutoController::class, 'create']) ->name('login',);
 Route::post('/login', [AuthController::class, 'store']);
 
 
-Route::get('/clients/add',[ClientController::class, 'create'])->middelware(['auth'])->name('clients.add');
-Route:post('/clients', [ClientController::class, 'store'])->middleware(['auth']);
+Route::get('/clients/add',[ClientController::class, 'create'])->middleware(['auth'])->name('clients.add');
+Route::post('/clients', [ClientController::class, 'store'])->middleware(['auth']);
+
+Route::get('/logout', [AuthController::class, 'logout']);
+
 
